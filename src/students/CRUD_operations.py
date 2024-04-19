@@ -1,6 +1,18 @@
 from bson import ObjectId
 
-from database import student_collection, student_helper
+from database import student_collection
+
+
+def student_helper(student) -> dict:
+    return {
+        "student_id": str(student["_id"]),
+        "first_name": student["first_name"],
+        "last_name": student["last_name"],
+        "email": student["email"],
+        "age": student["age"],
+        "course_of_study": student["course_of_study"],
+        "study_year": student["study_year"]
+    }
 
 
 async def retrieve_students():
