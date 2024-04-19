@@ -4,7 +4,7 @@ from fastapi.encoders import jsonable_encoder
 from students.schemas import *
 from students.CRUD_operations import *
 
-students_router = APIRouter(prefix="/students", tags=["students"])
+students_router = APIRouter(prefix="/students", tags=["Students"])
 
 
 @students_router.get("/", response_description="Students retrieved")
@@ -30,7 +30,7 @@ async def create_student(student_data: StudentSchema):
     return response_model(new_student, "Student created successful")
 
 
-@students_router.post("/{student_id}")
+@students_router.put("/{student_id}")
 async def update_student_data(student_id, student_data: UpdateStudentSchema):
     student_data = {k: v for k, v in student_data.dict().items() if v is not None}
     updated_student = await update_student(student_id, student_data)

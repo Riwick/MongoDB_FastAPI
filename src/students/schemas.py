@@ -12,7 +12,7 @@ class StudentSchema(BaseModel):
     study_year: int = Field(gt=0, lt=9)
 
     class Config:
-        schema_extra= {
+        json_schema_extra= {
             "example": {
                 "first_name": "string",
                 "last_name": "string",
@@ -31,7 +31,7 @@ class UpdateStudentSchema(BaseModel):
     course_of_study: Optional[str]
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "first_name": "string1",
                 "last_name": "string1",
